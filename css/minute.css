@@ -1,0 +1,12 @@
+.timer{
+    border: 5px solid red;
+}
+
+#timer-output{
+    text-align: center;
+    color: navy;
+}
+
+#time-input{
+    font-size: 26px;
+}

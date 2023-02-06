@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: gray;
+}
+
+.title{
+    text-align: center;
+    margin: 10px;
+    padding: 30px;
+    color: skyblue;
+}
+
+.link{
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.link a{
+    padding: 10px;
+    border: 3px solid red;
+    border-radius: 10px;
+    text-decoration: none;
+    color: navy;
+    background: papayawhip;
+}
+
+.retour{
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    color: navy;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 3px solid red;
+    border-radius: 10px;
+    background: papayawhip;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 36px;
+    font-family: sans-serif;
+}
+
+.hours-container, .minutes-container, .seconds-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33.33%;
+    width: 100%;
+}
+
+.hours, .minutes, .seconds {
+    color: #333;
+    text-align: center;
+}
+
+.chrono-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: none;
+}
+
+#pause-btn,
+#stop-btn {
+    visibility: hidden;
+}

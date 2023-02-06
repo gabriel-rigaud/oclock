@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Minuteur</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minute.css">
+</head>
+<header>
+  <h1 class="title">Minuteur</h1>
+</header>
+<body>
+<div class="timer">
+  <h1 id="timer-output"></h1>
+  <button id="5-minutes">5 Minutes</button>
+  <button id="10-minutes">10 Minutes</button>
+  <button id="15-minutes">15 Minutes</button>
+  <button id="30-minutes">30 Minutes</button>
+  <button id="50-minutes">50 Minutes</button>
+  <input type="text" id="time-input" placeholder="Entrer le temps en minutes"/>
+  <br><br>
+  <button id="start-timer">Start Timer</button>
+  <button id="pause-timer" disabled>Pause</button>
+  <button id="stop-timer" disabled>Arrêter</button>
+  <audio id="alarm" src="alarm.mp3"></audio>
+  <br><br>
+</div>
+<br>
+<a href="index.html" class="retour">RETOUR AU MENU</a>
+<script src="js/minuteur.js"/>
+</body>
+</html>
