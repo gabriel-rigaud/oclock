@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réveil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+</header>
+<body class="page">
+<div class="style-top">
+  <h1 class="title">Réveil</h1>
+<div id="clock">
+  <span id="hours">:</span>
+  <span id="minutes">:</span>
+  <span id="seconds">:</span>
+</div>
+<br>
+<div id="alarm-form">
+  <input type="time" id="alarm-time" style="text-align: center;">
+  <button id="set-alarm">Régler l'réveil</button>
+  <button id="clear-alarm">Effacer l'réveil</button>
+</div>
+
+<div id="alarm-message"></div>
+<br><br>
+<a href="index.html" class="retour">RETOUR AU MENU</a>
+  </div>
+<script>
+  const clock = document.getElementById("clock");
+  const hoursSpan = document.getElementById("hours");
+  const minutesSpan = document.getElementById("minutes");
+  const secondsSpan = document.getElementById("seconds");
+  const alarmForm = document.getElementById("alarm-form");
+  const alarmTime = document.getElementById("alarm-time");
+  const setAlarm = document.getElementById("set-alarm");
+  const clearAlarm = document.getElementById("clear-alarm");
+  const alarmMessage = document.getElementById("alarm-message");
+  let alarmInterval;
+  let alarmSound = new Audio("alarme.mp3");
+
+
+  function updateClock() {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    hoursSpan.innerHTML = hours + " :";
+    minutesSpan.innerHTML = minutes + " :";
+    secondsSpan.innerHTML = seconds;
+  }
+
+  function checkAlarm() {
+    let date = new Date();
+    let alarmHours = alarmTime.value.split(":")[0];
+    let alarmMinutes = alarmTime.value.split(":")[1];
+    if (date.getHours() === parseInt(alarmHours) && date.getMinutes() === parseInt(alarmMinutes)) {
+      clearInterval(alarmInterval);
+      alarmMessage.innerHTML = "Réveil!";
+      alarmSound.play();
+    }
+  }
+
+  setAlarm.addEventListener("click", function() {
+    clearInterval(alarmInterval);
+    alarmInterval = setInterval(checkAlarm, 1000);
+    alarmMessage.innerHTML = "Le réveil a bien été ajouté.";
+  });
+
+  clearAlarm.addEventListener("click", function() {
+    clearInterval(alarmInterval);
+    alarmMessage.innerHTML = "";
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    alarmMessage.innerHTML = "Le réveil a bien été effacé.";
+  });
+
+  updateClock();
+  setInterval(updateClock);
+</script>
+</body>
+</html>

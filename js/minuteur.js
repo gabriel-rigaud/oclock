@@ -8,6 +8,7 @@ const timeInput = document.getElementById("time-input");
 const timerOutput = document.getElementById("timer-output");
 const pauseTimer = document.getElementById("pause-timer");
 const stopTimer = document.getElementById("stop-timer");
+const alarm = document.getElementById("alarm");
 
 let countdown;
 
@@ -23,6 +24,14 @@ function startCountdown(minutes) {
         }
         timerOutput.innerHTML = formatTime(remainingTime);
         remainingTime--;
+        let alarm = document.getElementById("alarm");
+        if (remainingTime <= 0) {
+            clearInterval(countdown);
+            timerOutput.innerHTML = "Finished!";
+            alarm.currentTime = 0;
+            alarm.play();
+            return;
+        }
     }, 1000);
     pauseTimer.removeAttribute("disabled");
     stopTimer.removeAttribute("disabled");
@@ -45,6 +54,15 @@ startTimer.addEventListener("click", function() {
     if (time) {
         startCountdown(time);
     }
+});
+
+stopTimer.addEventListener("click", function() {
+    clearInterval(countdown);
+    timerOutput.innerHTML = "0:00";
+    stopTimer.setAttribute("disabled", true);
+    pauseTimer.setAttribute("disabled", true);
+    alarm.pause();
+    alarm.currentTime = 0;
 });
 
 fiveMinutes.addEventListener("click", function() {

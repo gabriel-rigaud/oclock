@@ -4,7 +4,7 @@
 }
 
 body{
-    background: gray;
+    background: black;
 }
 
 .title{
@@ -21,6 +21,7 @@ body{
 }
 
 .link a{
+    margin: 15px;
     padding: 10px;
     border: 3px solid red;
     border-radius: 10px;
@@ -51,6 +52,10 @@ body{
     margin: 0 auto;
     font-size: 36px;
     font-family: sans-serif;
+}
+
+#clock{
+    font-size: 40px
 }
 
 .hours-container, .minutes-container, .seconds-container {
@@ -95,4 +100,64 @@ button {
 #pause-btn,
 #stop-btn {
     visibility: hidden;
+}
+
+#alarm-controls {
+    margin-top: 20px;
+}
+
+#alarm-time{
+    font-size: 28px;
+}
+
+#alarm-message{
+    font-size: 29px;
+}
+#alarm-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#alarm-form input, button{
+    margin: 10px;
+}
+
+
+/*minute*/
+
+.timer{
+    border: 5px solid red;
+}
+
+#timer-output{
+    text-align: center;
+    color: navy;
+}
+
+#time-input{
+    font-size: 26px;
+}
+
+.style-top {
+    width: 440px;
+    background: white;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 30px;
+
+}
+
+.page, .page-minut, .style-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page{
+    min-height: 60vh;
+}
+
+.page-minut{
+    min-height: 100vh;
 }
